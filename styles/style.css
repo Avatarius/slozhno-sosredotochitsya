@@ -1,5 +1,86 @@
 /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
 
+.title-decor {
+  background-color: var(--main-accent-color, #ff0070);
+}
+
 .page {
   /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 18px;
+  font-weight: 400;
+  /* padding: 0 20px; */
+  background-color: var(--main-bg-color, #000028);
+  line-height: 1.3;
 }
+
+.header {
+  background-image: url(../images/cover-image.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  justify-content: center;
+  align-items: center;
+  padding: clamp(10px, 20px, 1.953vw);
+
+}
+
+.header__theme-menu {
+  align-self: flex-start;
+}
+
+.header__theme-menu-list {
+  display: grid;
+  grid-template-columns: repeat(3, 70px);
+  gap: 10px;
+  justify-content: center;
+  align-items: start;
+
+}
+
+.header__theme-menu-item {
+
+}
+
+.header__theme-menu-button {
+  appearance: none;
+  border: none;
+  background-color: transparent;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: 1;
+  color: #ff0070;
+  padding: 0 13px;
+  block-size: 26px;
+  text-transform: lowercase;
+
+}
+
+.header__theme-menu-button_active {
+  border: 1px solid var(--accent-color, #ff0070);
+}
+
+.header__title {
+   font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+   font-weight: 700;
+   line-height: 1.29525;
+   color: var(--title-text-color, #db00ff);
+   text-shadow: 4px 4px 0 var(--main-accent-color, #ff0070);
+   justify-self: start;
+   position: relative;
+   inset-inline-end: 20px;
+}
+
+.header__text {
+  color: var(--accent-contrast-text-color, #000028);
+  font-weight: 700;
+  width: 50%;
+  justify-self: end;
+  align-self: flex-start;
+  margin-block-start: 5.664vw;
+}
+
+
