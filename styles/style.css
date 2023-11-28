@@ -71,7 +71,6 @@
 }
 
 .header__text {
-  /* display: inline-block; */
   justify-self: end;
   align-self: center;
   color: var(--accent-contrast-text-color, #000028);
