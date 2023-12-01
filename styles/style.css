@@ -1,28 +1,76 @@
-/* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
 
 .title-decor {
   background-color: var(--main-accent-color, #ff0070);
+  color: var(--accent-contrast-text-color, #000028);
 }
 
 .page {
-  /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
   font-family: 'IBM Plex Mono', monospace;
   font-size: 18px;
   font-weight: 400;
   background-color: var(--main-bg-color, #000028);
   line-height: 1.3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-image: url(../images/cover-image-dark.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+
+}
+
+.title {
+  color: var(--title-text-color, #db00ff);
+  font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+  font-weight: 700;
+  line-height: 0.825;
 }
 
 
 .header {
-  block-size: 100vh;
-  padding: 20px;
+  min-block-size: 100vh;
+  padding: clamp(0.625rem, 0.029rem + 2.545vw, 1.25rem);
   display: grid;
   grid-template-rows: 1fr minmax(min-content, max-content) 1fr;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+  "header__nav header__nav"
+  "header__title header__title"
+  ". header__text";
   align-items: center;
+  margin-block-end: clamp(2.5rem, 1.307rem + 5.089vw, 3.75rem);
+}
+
+.decorated-zone {
+  position: relative;
+}
+
+.decorated-zone::before {
+  content: '';
+  inline-size: 25px;
+  block-size: 25px;
+  position: absolute;
+  inset-inline-start: clamp(0.625rem, 0.029rem + 2.545vw, 1.25rem);
+  inset-block-end: clamp(0.625rem, 0.029rem + 2.545vw, 1.25rem);
+  border-block-end: 1px solid var(--brackets-сolor, #ff0070);
+  border-inline-start: 1px solid var(--brackets-сolor, #ff0070);
+}
+
+.decorated-zone::after {
+  content: '';
+  inline-size: 25px;
+  block-size: 25px;
+  position: absolute;
+  inset-inline-end: clamp(0.625rem, 0.029rem + 2.545vw, 1.25rem);
+  inset-block-start: clamp(0.625rem, 0.029rem + 2.545vw, 1.25rem);
+  border-block-start: 1px solid var(--brackets-сolor, #ff0070);
+  border-inline-end: 1px solid var(--brackets-сolor, #ff0070);
 }
 
 .header__theme-menu {
+  grid-area: header__nav;
   align-self: flex-start;
 }
 
@@ -33,12 +81,6 @@
   justify-content: center;
   align-items: start;
   gap: 10px;
-}
-
-
-
-.header__theme-menu-item {
-
 }
 
 .header__theme-menu-button {
@@ -54,35 +96,213 @@
   block-size: 26px;
 }
 
+.header__theme-menu-button:hover {
+  border: 1px solid rgba(255, 0, 112, 0.40);
+}
+
+.header__theme-menu-button {
+  outline: none;
+}
+
+.header__theme-menu-button:focus-visible {
+  border-block-end: 1px solid rgba(255, 0, 112, 0.40);
+}
+
 .header__theme-menu-button_active {
   border: 1px solid var(--main-accent-color, #ff0070);
+  pointer-events: none;
 }
 
 .header__title {
-  align-self: start;
-  color: var(--title-text-color, #db00ff);
-  font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
-  font-weight: 700;
-  line-height: 0.825;
+  grid-area: header__title;
+  justify-self: start;
   text-shadow: 4px 4px 0 var(--main-accent-color);
-  position: relative;
-  inset-inline-end: 20px;
-
+  margin-inline-start: calc(clamp(0rem, -1.193rem + 5.089vw, 1.25rem) * -1);
 }
 
 .header__text {
-  justify-self: end;
+  grid-area: header__text;
   align-self: center;
-  color: var(--accent-contrast-text-color, #000028);
   font-weight: 700;
-  inline-size: 50%;
-  font-style: normal;
+}
+
+.header__decor {
+  position: absolute;
+  inset-inline-end: clamp(2.375rem, 1.779rem + 2.545vw, 3rem);
+  inset-block-start: clamp(0.625rem, 0.029rem + 2.545vw, 1.25rem);
+  inline-size: 33px;
+  block-size: 26px;
+  text-transform: uppercase;
+  line-height: 1.38889;
+}
+
+.header__decor::before {
+  content: 'REC';
+  color: var(--main-accent-color, #ff0070);
+}
+
+.header__decor::after {
+  content: '';
+  inline-size: 9px;
+  block-size: 9px;
+  position: absolute;
+  inset-inline-end: -19px;
+  inset-block-start: 8px;
+  background-color: var(--main-accent-color, #ff0070);
+  border-radius: 50%;
+  filter: drop-shadow(0px 0px 4px var(--main-accent-color, #ff0070));
+}
+
+.content {
+  display: grid;
+  grid-template-rows: repeat(auto-fit, 1fr);
+  gap: clamp(3.125rem, 1.336rem + 7.634vw, 5rem);
+  padding-inline: clamp(0.625rem, 0.029rem + 2.545vw, 1.25rem);
+}
+
+.content__section-grid {
+  display: grid;
+  grid-template-columns: fit-content(315px) 1fr;
+  grid-template-areas: "content__title content__article-list";
+  gap: 20px;
+}
+
+.content__section-grid_block {
+  grid-template-columns: none;
+  grid-template-rows: fit-content(315px) 1fr;
+  grid-template-areas:
+  "content__title"
+  "content__article-list";
+}
+
+.content__title {
+  grid-area: content__title;
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--content-title-color, #ff0070);
+  max-inline-size: clamp(14.75rem, -0.063rem + 30.859vw, 19.688rem);
+}
+
+.content__article-list {
+  grid-area: content__article-list;
+  display: grid;
+  grid-template-rows: repeat(auto-fit, 1fr);
+  gap: 20px;
+}
+
+.content__article-list_inline {
+  display: grid;
+  grid-template-rows: none;
+  grid-template-columns: repeat(3, 1fr);
+
+}
+
+.content__article {
+  display: grid;
+  grid-template-rows: min-content 1fr;
+  gap: 10px;
+}
+
+.content__subtitle {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.content__subtitle_accent {
+  font-weight: 700;
+}
+
+.content__text {
+  color: var(--main-text-color, #f1b2ce);
+}
+
+.content__link {
+  text-decoration: none;
+  text-shadow: var(--main-accent-color, #ff0070) 2.7px 2px;
+}
+
+.content__link:hover {
+  border-block-end: 1px solid var(--main-text-color, #f1b2ce);
+}
+
+.content__link:focus {
+  outline: none
+}
+
+.content__link:focus-visible {
+  outline: 1px solid var(--main-text-color, #f1b2ce);
+}
+
+.gallery {
+  display: grid;
+  grid-template-rows: repeat(auto-fit, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas:
+  "gallery__sunset-img gallery__sunset-img gallery__icecream-img"
+  "gallery__tape-img gallery__books-img gallery__icecream-img"
+  "gallery__tape-img gallery__street-img gallery__street-img";
+  gap: 20px;
+  margin-block-start: clamp(0.625rem, 0.029rem + 2.545vw, 1.25rem);
+  margin-block-end: clamp(2.5rem, 1.307rem + 5.089vw, 3.75rem);
+
+}
+
+.gallery__img {
+  object-fit: cover;
+  object-position: center;
+  inline-size: 100%;
+  block-size: 100%;
+  gap: 20px;
+}
+
+.gallery__sunset-img {
+  grid-area: gallery__sunset-img;
+}
+
+.gallery__icecream-img {
+  grid-area: gallery__icecream-img;
+}
+
+.gallery__tape-img {
+  grid-area: gallery__tape-img;
+}
+
+.gallery__books-img {
+  grid-area: gallery__books-img;
+}
+
+.gallery__street-img {
+  grid-area: gallery__street-img;
+}
+
+.footer {
+  min-block-size: 100vh;
+  padding: clamp(0.625rem, 0.029rem + 2.545vw, 1.25rem);
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  margin-block-end: clamp(2.5rem, 1.307rem + 5.089vw, 3.75rem);
 }
 
 
-@media (width <= 768px) {
+.footer__title {
+  text-shadow: 2px 2px 0px var(--main-accent-color, #ff0070);
+  justify-self: center;
+}
+
+
+
+@media (width < 1024px) {
+  .header {
+    grid-template-areas:
+    ". header__nav"
+    "header__title header__title"
+    ". header__text";
+  }
+
   .header__theme-menu {
     justify-self: end;
+    align-self: center;
   }
 
   .header__theme-menu-list {
@@ -91,27 +311,50 @@
 
   }
 
-  .header__theme-menu {
-    align-self: center;
-  }
-
   .header__title {
     font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
   }
 
+  .content__article-list_inline {
+    grid-template-columns: none;
+    grid-template-rows: repeat(3, min-content);
+
+
+  }
+
 }
 
-@media (width <= 375px) {
+@media (width < 768px) {
   .header {
-    padding: 10px;
+    grid-template-areas:
+    "header__nav header__nav"
+    "header__title header__title"
+    "header__text header__text";
   }
 
-  .header__title {
-    inset-inline-start: 0;
+  .content__section-grid {
+    grid-template-columns: none;
+    grid-template-rows: min-content 1fr;
+    grid-template-areas:
+    "content__title"
+    "content__article-list";
   }
 
-  .header__text {
-    justify-self: center;
-    inline-size: 100%;
+  .content__title {
+    max-width: initial;
   }
+
+  .gallery {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(5, min-content);
+    gap: 10px;
+    grid-template-areas:
+    "gallery__sunset-img"
+    "gallery__icecream-img"
+    "gallery__tape-img"
+    "gallery__books-img"
+    "gallery__street-img";
+  }
+
+
 }
