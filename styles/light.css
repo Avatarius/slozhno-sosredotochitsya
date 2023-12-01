@@ -1,5 +1,5 @@
 .page.theme_light {
-  --main-bg-color: #ff8dcb;
+  --main-bg-color: #fff1f7;
   --main-text-color: #353430;
   --title-text-color: #ffc2e6;
   --content-title-color: #353430;
@@ -16,7 +16,7 @@
 
 @media (prefers-color-scheme: light) {
   :root {
-    --main-bg-color: #ff8dcb;
+    --main-bg-color: #fff1f7;
     --main-text-color: #353430;
     --title-text-color: #ffc2e6;
     --content-title-color: #353430;
