@@ -8,13 +8,12 @@
   --accent-contrast-text-color: #353430;
   --brackets-сolor: #353430;
   --button-color: #353430;
-  --button-hover-color: rgba(50, 49, 45, 0.40);
+  --button-hover-color: rgba(50, 49, 45, 0.4);
 }
 
 .theme_light .header__decor {
   display: none;
 }
-
 
 @media (prefers-color-scheme: light) {
   :root {
@@ -27,7 +26,7 @@
     --accent-contrast-text-color: #353430;
     --brackets-сolor: #353430;
     --button-color: #353430;
-    --button-hover-color: rgba(50, 49, 45, 0.40);
+    --button-hover-color: rgba(50, 49, 45, 0.4);
   }
 
   .header__decor {
