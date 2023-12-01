@@ -6,7 +6,7 @@
   --main-accent-color: #ff8dcb;
   --accent-contrast-text-color: #353430;
   --brackets-сolor: #353430;
-  background-image: url(../images/cover-image-light.png);
+  --main-bg-img: url(../images/cover-image-light.png);
 }
 
 .theme_light .header__decor {
@@ -15,7 +15,7 @@
 
 
 @media (prefers-color-scheme: light) {
-  .page {
+  :root {
     --main-bg-color: #ff8dcb;
     --main-text-color: #353430;
     --title-text-color: #ffc2e6;
@@ -23,7 +23,7 @@
     --main-accent-color: #ff8dcb;
     --accent-contrast-text-color: #353430;
     --brackets-сolor: #353430;
-    background-image: url(../images/cover-image-light.png);
+    --main-bg-img: url(../images/cover-image-light.png);
   }
 
   .header__decor {
