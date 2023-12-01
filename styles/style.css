@@ -71,6 +71,8 @@
 .header__theme-menu {
   grid-area: header__nav;
   align-self: flex-start;
+  justify-self: center;
+  max-inline-size: 230px;
 }
 
 
