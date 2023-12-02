@@ -33,3 +33,16 @@
     display: none;
   }
 }
+
+@media (prefers-color-scheme: light) and (width < 1024px) {
+  :root {
+    --title-shadow-color: #ff8dcb;
+  }
+}
+
+@media (width < 1024px) {
+  .page.theme_light {
+    --title-shadow-color: #ff8dcb;
+  }
+}
+
